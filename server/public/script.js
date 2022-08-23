@@ -1,6 +1,7 @@
 const button = document.querySelector("button")
 button.addEventListener("click", () => {
-    console.log("checkout")
+  //to check event listener before fetch coded:
+   // console.log("checkout")
   fetch("http://localhost:3000/create-checkout-session", {
     method: "POST",
     headers: {
@@ -18,7 +19,8 @@ button.addEventListener("click", () => {
       return res.json().then(json => Promise.reject(json))
     })
     .then(({ url }) => {
-      window.location = url
+      console.log(url)
+      //window.location = url
     })
     .catch(e => {
       console.error(e.error)
